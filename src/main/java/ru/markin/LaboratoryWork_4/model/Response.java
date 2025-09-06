@@ -1,10 +1,10 @@
-package ru.markin.LaboratoryWork_3.model;
+package ru.markin.LaboratoryWork_4.model;
 
 import lombok.Builder;
 import lombok.Data;
-import ru.markin.LaboratoryWork_3.Codes;
-import ru.markin.LaboratoryWork_3.ErrorMessages;
-import ru.markin.LaboratoryWork_3.util.ErrorCodes;
+import ru.markin.LaboratoryWork_4.Codes;
+import ru.markin.LaboratoryWork_4.ErrorMessages;
+import ru.markin.LaboratoryWork_4.util.ErrorCodes;
 
 @Data
 @Builder

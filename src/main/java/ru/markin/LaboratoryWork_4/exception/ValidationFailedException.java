@@ -1,4 +1,4 @@
-package ru.markin.LaboratoryWork_3.exception;
+package ru.markin.LaboratoryWork_4.exception;
 
 public class ValidationFailedException extends Exception {
 

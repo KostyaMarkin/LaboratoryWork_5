@@ -1,9 +1,9 @@
-package ru.markin.LaboratoryWork_3.service;
+package ru.markin.LaboratoryWork_4.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-import ru.markin.LaboratoryWork_3.exception.UnsupportedCodException;
-import ru.markin.LaboratoryWork_3.exception.ValidationFailedException;
+import ru.markin.LaboratoryWork_4.exception.UnsupportedCodException;
+import ru.markin.LaboratoryWork_4.exception.ValidationFailedException;
 
 @Service
 public interface ValidationService {

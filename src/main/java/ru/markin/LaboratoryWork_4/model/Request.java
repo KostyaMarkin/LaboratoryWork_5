@@ -1,4 +1,4 @@
-package ru.markin.LaboratoryWork_3.model;
+package ru.markin.LaboratoryWork_4.model;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

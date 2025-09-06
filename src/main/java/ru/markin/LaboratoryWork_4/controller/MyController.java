@@ -1,4 +1,4 @@
-package ru.markin.LaboratoryWork_3.controller;
+package ru.markin.LaboratoryWork_4.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -10,16 +10,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.markin.LaboratoryWork_3.Codes;
-import ru.markin.LaboratoryWork_3.ErrorMessages;
-import ru.markin.LaboratoryWork_3.exception.UnsupportedCodException;
-import ru.markin.LaboratoryWork_3.exception.ValidationFailedException;
-import ru.markin.LaboratoryWork_3.model.Request;
-import ru.markin.LaboratoryWork_3.model.Response;
-import ru.markin.LaboratoryWork_3.service.ModifyResonseService;
-import ru.markin.LaboratoryWork_3.service.ValidationService;
-import ru.markin.LaboratoryWork_3.util.DateTimeUtil;
-import ru.markin.LaboratoryWork_3.util.ErrorCodes;
+import ru.markin.LaboratoryWork_4.Codes;
+import ru.markin.LaboratoryWork_4.ErrorMessages;
+import ru.markin.LaboratoryWork_4.exception.UnsupportedCodException;
+import ru.markin.LaboratoryWork_4.exception.ValidationFailedException;
+import ru.markin.LaboratoryWork_4.model.Request;
+import ru.markin.LaboratoryWork_4.model.Response;
+import ru.markin.LaboratoryWork_4.service.ModifyRequestService;
+import ru.markin.LaboratoryWork_4.service.ModifyResponseService;
+import ru.markin.LaboratoryWork_4.service.ValidationService;
+import ru.markin.LaboratoryWork_4.util.DateTimeUtil;
+import ru.markin.LaboratoryWork_4.util.ErrorCodes;
 
 import java.util.Date;
 
@@ -28,12 +29,15 @@ import java.util.Date;
 public class MyController {
 
     private final ValidationService validationService;
-    private final ModifyResonseService modifyResonseService;
+    private final ModifyResponseService modifyResponseService;
+    private final ModifyRequestService modifyRequestService;
 
     @Autowired
-    public MyController(ValidationService validationService, @Qualifier("ModifySystemTimeResponseService") ModifyResonseService modifyResonseService) {
+    public MyController(ValidationService validationService, @Qualifier("ModifySystemTimeResponseService") ModifyResponseService modifyResponseService,
+                        ModifyRequestService modifyRequestService, ModifyRequestService modifyRequestService1) {
         this.validationService = validationService;
-        this.modifyResonseService = modifyResonseService;
+        this.modifyResponseService = modifyResponseService;
+        this.modifyRequestService = modifyRequestService1;
     }
 
     @PostMapping(value = "/feedback")
@@ -67,8 +71,8 @@ public class MyController {
             response.setErrorMessage(ErrorMessages.UNSOPPORTED);
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
-        modifyResonseService.modify(response);
-
+        modifyResponseService.modify(response);
+        modifyRequestService.modify(request);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

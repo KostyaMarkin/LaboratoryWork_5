@@ -1,14 +1,14 @@
-package ru.markin.LaboratoryWork_3.service;
+package ru.markin.LaboratoryWork_4.service;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import ru.markin.LaboratoryWork_3.model.Response;
+import ru.markin.LaboratoryWork_4.model.Response;
 
 import java.util.UUID;
 
 @Service
 @Qualifier("ModifyOperationUidResponseService")
-public class ModifyOperationUidResponseService implements ModifyResonseService {
+public class ModifyOperationUidResponseService implements ModifyResponseService {
 
 
     @Override
